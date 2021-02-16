@@ -1,3 +1,5 @@
+const e = require("express");
+
 document.addEventListener("DOMContentLoaded", (event) => {
     if (event) {
         console.info("DOM loaded");
@@ -11,7 +13,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
         name: document.getElementById('ca').value.trim(),
           };
     fetch(`/api/burgers/${id}`, {
-        method: "PUT",
+        method: "POST",
         headers: {
         Accept: "application/json",
                 "Content-Type": "application/json",
@@ -29,16 +31,24 @@ document.addEventListener("DOMContentLoaded", (event) => {
       }
 
 
+    const changeDevourBtn = document.querySelectorAll(".change-devoured"); 
+    if (changeDevourBtn) {
+        changeDevourBtn.forEach((button) => {
+            button.addEventListener("click", (e) => {
+                const id = e.target.getAttribute("data-id");
+                var devourState = e.target.getAttribute("data-devoured");
+    const newDevouredState = true;
+    console.log(newDevouredState)
 
+    fetch(`/api/burgers/${id}`, {
+        method: 'PUT',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
 
-
-
-
-
-
-
-
-
+        body: JSON.stringify({devoured: newDevouredState}),
+    }).then((response) => {
 
             if (response.ok) {
                 console.log(`changed devoured/eaten to: ${newDevouredState}`);
