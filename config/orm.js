@@ -47,40 +47,29 @@ const orm = {
     });
   },
   insertOne(table, cols, vals, cb) {
-    let queryString = `INSERT INTO ${table}`;
-
-    queryString += ' (';
-    queryString += cols.toString();
-    queryString += ') ';
-    queryString += 'VALUES (';
-    queryString += printQuestionMarks(vals.length);
-    queryString += ') ';
-
-    console.log("Your Burger is Ready!");
+    const queryString = `INSERT INTO ${table} (${cols.toString()}) VALUES (${printQuestionMarks(vals.length)})`;
+    console.log(queryString);
 
     connection.query(queryString, vals, (err, result) => {
       if (err) {
         throw err;
       }
 
+      console.log("Your Burger is Ready!");
       cb(result);
     });
   },
   // An example of objColVals would be {name: panther, sleepy: true}
   updateOne(table, objColVals, condition, cb) {
-    let queryString = `UPDATE ${table}`;
-
-    queryString += ' SET ';
-    queryString += objToSql(objColVals);
-    queryString += ' WHERE ';
-    queryString += condition;
-
+    const queryString = `UPDATE ${table} SET ${objToSql(objColVals)} WHERE ${condition}`;
     console.log(queryString);
+
     connection.query(queryString, (err, result) => {
       if (err) {
         throw err;
       }
 
+      console.log('Your burger has been devoured');
       cb(result);
     });
   },
