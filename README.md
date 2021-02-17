@@ -10,3 +10,7 @@ In this assignment, you'll create a burger logger with MySQL, Node, Express, Han
 ## Author 
 
 Caroline Lynch 
+
+## Credits 
+
+Worked with my tutor to get help on this assignment. 
