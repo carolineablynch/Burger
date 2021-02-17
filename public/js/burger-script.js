@@ -29,31 +29,29 @@ createForm.addEventListener('submit', event => {
 
 const changeDevourBtn = document.querySelectorAll(".change-devoured");
 changeDevourBtn.forEach((button) => {
-    button.addEventListener("click" (e) => {
+    button.addEventListener("click", (e) => {
         const id = e.target.getAttribute("data-id");
         const devourState = !!parseInt(e.target.getAttribute("data-devoured"));
         const newDevouredState = !devourState;
 
+        fetch(`/api/burgers/${id}`, {
+            method: 'PUT',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({devoured: newDevouredState}),
+        }).then((response) => {
+            if (response.ok) {
+                console.log(`changed devoured/eaten to: ${newDevouredState}`);
+                window.location.reload();
+            } else {
+                alert('something went wrong!');
+            }
+        });
+    });
+});
+});
 
 
 
-    }
-
-
-
-
-}
-
-
-
-
-
-    }
-
-
-
-
-
-
-
-})
