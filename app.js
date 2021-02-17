@@ -15,4 +15,4 @@ app.engine('handlebars', handlebars({
     layoutsDir: path.join(__dirname, '/views/layouts')
 }));
 app.use('/', burgersController);
-app.listen(PORT, () => console.log(`App listening on port ${port}`));
+app.listen(PORT, () => console.log(`App listening on port ${PORT}`));
