@@ -1,0 +1,26 @@
+{
+  "name": "burger",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/carolineablynch/Burger.git"
+  },
+  "author": "Caroline Lynch",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/carolineablynch/Burger/issues"
+  },
+  "homepage": "https://github.com/carolineablynch/Burger#readme",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-handlebars": "^5.2.0",
+    "mysql": "^2.18.1"
+}
+}
