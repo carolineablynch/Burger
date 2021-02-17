@@ -7,7 +7,7 @@ const connection = mysql.createConnection({
   port: 3306,
   user: 'root',
   // NOTE: Be sure to add your MySQL password here!
-  password: 'PenthouseF2018!',
+  password: process.env.DB_PASS,
   database: 'burger_db',
 });
 
